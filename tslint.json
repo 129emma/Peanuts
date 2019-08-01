@@ -1,7 +1,8 @@
 {
-    "defaultSeverity": "error",
     "extends": [
-        "tslint-react"
+        "tslint-react",
+        "tslint:recommended",
+        "tslint-config-prettier"
     ],
     "jsRules": {
     },
@@ -11,7 +12,23 @@
         "quotemark": false,
         "no-console": false,
         "semicolon": false,
-        "jsx-no-lambda": false
+        "prefer-const": {
+            "severity": "warning"
+        },
+        "no-empty": {
+            "severity": "warning"
+        },
+        "interface-name": {
+            "severity": "warning",
+            "options": "never-prefix"
+        },
+        "jsdoc-format": {
+            "severity": "warning"
+        },
+        "jsx-no-multiline-js": false,
+        "eofline": false,
+        "object-literal-sort-keys": false
+
     },
     "rulesDirectory": [
     ],
