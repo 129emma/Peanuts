@@ -1,4 +1,5 @@
 import * as React from "react";
+import store from "../../store/store";
 
 /**Component Description
  *@author Emma
@@ -11,8 +12,19 @@ interface State {
     i: boolean
 }
 
-export default class ProductsView extends React.Component<Props, State>{
+class ProductsView extends React.Component<Props, State>{
+    public constructor(props: Props) {
+        super(props);
+        this.state = {
+           i: false
+        }
+    }
+
     render(){
-        return <h1>Products view</h1>
+        return (
+            <h1>Products view {console.log(store.getState)}</h1>
+            )
     }
 }
+
+export default ProductsView;

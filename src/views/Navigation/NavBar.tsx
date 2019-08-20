@@ -1,13 +1,13 @@
 import * as React from "react";
-import {Link} from "react-router-dom";
-import {NavItem} from "../interface";
+import {Link, RouteComponentProps} from "react-router-dom";
+import {NavItem} from "../../utils/types";
 
 /**Component Description
  *@author Emma
  *@date 2019-07-31
  **/
 
-interface Props {
+interface Props{
     items: NavItem[];
     selectedItem: NavItem | false;
 }

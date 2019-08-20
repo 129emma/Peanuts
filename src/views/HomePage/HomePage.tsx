@@ -4,17 +4,9 @@ import * as React from "react";
  *@author Emma
  *@date 2019-07-31
  **/
-interface Props {
-    i?: boolean
+
+const HomePage: React.FunctionComponent =()=>{
+    return <h1>Home Page</h1>
 }
 
-interface State {
-    i: string
-}
-
-export default class HomePage extends React.Component<Props, State> {
-
-    render() {
-      return <h1>Homepage</h1>
-    }
-}
+export default HomePage;
