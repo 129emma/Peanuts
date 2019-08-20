@@ -5,50 +5,42 @@ import {RouteItem} from "../utils/types";
 import LoginView from "../views/LoginView/LoginView";
 
 export const PRODUCTS: RouteItem = {
-    name:"Products",
+    label:"Products",
     path:"/viewall",
     component:ProductsView
 };
 
 export const CARTS: RouteItem = {
-    name:"Shopping cart",
+    label:"Shopping cart",
     path:"/viewcart",
     component:ShoppingCartView
 };
 
 export const HOME: RouteItem = {
-    name:"Homepage",
+    label:"Homepage",
     path:"/",
     exact:true,
     component: HomePage
 };
 
 export const LOGIN: RouteItem = {
-    name:"Login",
+    label:"Login",
     path:"/login",
     component: LoginView
 };
 
-/*
-  Allow all users
- */
-export const guestRoutes: RouteItem[] = [
-    PRODUCTS,
-    HOME,
-    LOGIN,
-];
-
-/*
-   Allow login users
+/**
+ * Allow login users
  */
 export const privateRoutes: RouteItem[] = [
     CARTS
 ];
 
-
-export const routes: RouteItem[] = [
-    PRODUCTS,
+/**
+ * Allow All users
+ */
+export const publicRoutes: RouteItem[] = [
     HOME,
-    CARTS,
-    LOGIN
+    LOGIN,
+    PRODUCTS,
 ];

@@ -1,22 +1,40 @@
 import React from 'react';
-import {privateRoutes, routes} from "./routing/Routes";
+import {LOGIN, privateRoutes, publicRoutes} from "./routing/Routes";
 import {BrowserRouter, Switch} from "react-router-dom";
 import NavBar from "./views/Navigation/NavBar";
 import PublicRoute from "./routing/PublicRoute";
 import PrivateRoute from "./routing/PrivateRoute";
-import {NavItem} from "./utils/types";
+import {RouteItem} from "./utils/types";
+import {MainState} from "./store/store";
+import {connect} from "react-redux";
 
-const App: React.FunctionComponent = () => {
-    const navItems: NavItem[] = routes.map(route => ({label: route.name, path: route.path} as NavItem));
+interface Props {
+    loginStatus: boolean
+}
+
+const App: React.FunctionComponent<Props> = (props) => {
+    const renderRoutes = () => {
+        const navItems: RouteItem[] = publicRoutes;
+        if (props.loginStatus) {
+            navItems.push(...privateRoutes)
+        }
+        return navItems;
+    };
+
     return (
         <BrowserRouter>
-            <NavBar items={navItems} selectedItem={false}/>
+            <NavBar items={renderRoutes()} selectedItem={false}/>
             <Switch>
-                <PublicRoute routes={routes}/>
-                <PrivateRoute routes={privateRoutes} />
+                <PublicRoute routes={publicRoutes}/>
+                {/*TODO fix redirect issue*/}
+                <PrivateRoute routes={privateRoutes} redirectPath={LOGIN.path} loginStatus={props.loginStatus}/>
             </Switch>
         </BrowserRouter>
     )
 };
 
-export default App;
+const mapStateToProps = (state: MainState) => ({
+    loginStatus: state.login.loginStatus
+});
+
+export default connect(mapStateToProps, null)(App);

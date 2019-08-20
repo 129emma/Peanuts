@@ -5,6 +5,7 @@ import * as React from "react";
  *@date 2019-08-01
  **/
 
+
 const ShoppingCartView:React.FunctionComponent = () => {
     return <h1>Shopping cart</h1>
 }

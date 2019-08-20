@@ -2,14 +2,10 @@ import {RouteProps} from "react-router";
 
 export interface RouteItem {
     name?: string,
+    label?:string,
     path: string,
     exact?: boolean,
     component: RouteProps["component"];
-}
-
-export interface NavItem {
-    label: string,
-    path: string
 }
 
 export interface LoginStatus {

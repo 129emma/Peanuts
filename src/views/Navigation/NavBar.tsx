@@ -1,6 +1,6 @@
 import * as React from "react";
-import {Link, RouteComponentProps} from "react-router-dom";
-import {NavItem} from "../../utils/types";
+import {Link} from "react-router-dom";
+import {RouteItem} from "../../utils/types";
 
 /**Component Description
  *@author Emma
@@ -8,8 +8,8 @@ import {NavItem} from "../../utils/types";
  **/
 
 interface Props{
-    items: NavItem[];
-    selectedItem: NavItem | false;
+    items: RouteItem[];
+    selectedItem: RouteItem | false;
 }
 
 const NavBar: React.FunctionComponent<Props> = (props) => {
