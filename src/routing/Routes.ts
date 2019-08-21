@@ -3,6 +3,8 @@ import ShoppingCartView from "../views/ShoppingCartView/ShoppingCartView";
 import HomePage from "../views/HomePage/HomePage";
 import {RouteItem} from "../utils/types";
 import LoginView from "../views/LoginView/LoginView";
+import NewProductView from "../views/NewProductView/NewProductView";
+import GenreView from "../views/GenreView/GenreView";
 
 export const PRODUCTS: RouteItem = {
     label:"Products",
@@ -29,11 +31,23 @@ export const LOGIN: RouteItem = {
     component: LoginView
 };
 
+export const NEW_PRODUCT: RouteItem = {
+    label:"New",
+    path:"/new",
+    component: NewProductView
+};
+
+export const GENRE: RouteItem = {
+    label:"Genre",
+    path:"/genre",
+    component:GenreView
+}
+
 /**
  * Allow login users
  */
 export const privateRoutes: RouteItem[] = [
-    CARTS
+
 ];
 
 /**
@@ -43,4 +57,19 @@ export const publicRoutes: RouteItem[] = [
     HOME,
     LOGIN,
     PRODUCTS,
+    CARTS,
+    NEW_PRODUCT,
+    GENRE
+];
+
+export const navBarRoutes: RouteItem[] = [
+    HOME,
+    LOGIN,
+    PRODUCTS,
+    CARTS
+];
+
+export const secondNavRoutes: RouteItem[] = [
+    NEW_PRODUCT,
+    GENRE
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
-import {LOGIN, privateRoutes, publicRoutes} from "./routing/Routes";
+import {LOGIN, navBarRoutes, privateRoutes, publicRoutes, secondNavRoutes} from "./routing/Routes";
 import {BrowserRouter, Switch} from "react-router-dom";
 import NavBar from "./views/Navigation/NavBar";
 import PublicRoute from "./routing/PublicRoute";
@@ -7,6 +7,7 @@ import PrivateRoute from "./routing/PrivateRoute";
 import {RouteItem} from "./utils/types";
 import {MainState} from "./store/store";
 import {connect} from "react-redux";
+import SecondNavBar from "./views/Navigation/SecNavBar";
 
 interface Props {
     loginStatus: boolean
@@ -14,7 +15,7 @@ interface Props {
 
 const App: React.FunctionComponent<Props> = (props) => {
     const renderRoutes = () => {
-        const navItems: RouteItem[] = publicRoutes;
+        const navItems: RouteItem[] = navBarRoutes;
         if (props.loginStatus) {
             navItems.push(...privateRoutes)
         }
@@ -24,6 +25,7 @@ const App: React.FunctionComponent<Props> = (props) => {
     return (
         <BrowserRouter>
             <NavBar items={renderRoutes()} selectedItem={false}/>
+            <SecondNavBar items={secondNavRoutes} selectedItem={false}/>
             <Switch>
                 <PublicRoute routes={publicRoutes}/>
                 {/*TODO fix redirect issue*/}

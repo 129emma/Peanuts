@@ -16,7 +16,6 @@ const HomePage: React.FunctionComponent = () => {
             <TextField placeholder={"Please enter"} />
             <Select isClearable={true} isSearchable={true} name={"selection"} options={fakeOptions}/>
             <Link to={CARTS.path}>Cart</Link>
-
             <h2>Welcome!</h2>
             <h3><Link to={PRODUCTS.path}>Click to start</Link></h3>
         </>
