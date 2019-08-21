@@ -14,13 +14,11 @@ interface Props{
 
 const NavBar: React.FunctionComponent<Props> = (props) => {
     return (
-        <ul>
-            {props.items.map((item, index) => (
-                <li key={index}>
-                    <Link to={item.path}>{item.label}</Link>
-                </li>
+        <div>
+            {props.items.map(item => (
+                <Link to={item.path} key={item.path}>{item.label}</Link>
             ))}
-        </ul>
+        </div>
     )
 };
 
